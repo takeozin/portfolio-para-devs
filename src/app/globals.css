@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ============================================================
+   VARIÁVEIS CSS — Design Tokens
+   Paleta: Navy escuro + destaque âmbar/dourado
+   ============================================================ */
+@layer base {
+  :root {
+    /* Navy */
+    --color-navy-950: #050d1a;
+    --color-navy-900: #0a1628;
+    --color-navy-800: #0f2040;
+    --color-navy-700: #1e3a5f;
+    --color-navy-600: #2d5282;
+
+    /* Amber (destaque) */
+    --color-amber-400: #fbbf24;
+    --color-amber-500: #f59e0b;
+    --color-amber-600: #d97706;
+
+    /* Slate (texto) */
+    --color-slate-100: #f1f5f9;
+    --color-slate-200: #e2e8f0;
+    --color-slate-300: #cbd5e1;
+    --color-slate-400: #94a3b8;
+    --color-slate-500: #64748b;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-navy-900);
+    color: var(--color-slate-200);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Scrollbar customizada */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-navy-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-navy-700);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-amber-500);
+  }
+
+  /* Seleção de texto */
+  ::selection {
+    background: color-mix(in srgb, var(--color-amber-500) 30%, transparent);
+    color: var(--color-amber-200, #fde68a);
+  }
+
+  /* Focus visible acessível */
+  :focus-visible {
+    outline: 2px solid var(--color-amber-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ============================================================
+   UTILITÁRIOS GLOBAIS
+   ============================================================ */
+@layer utilities {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .container-custom {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .text-gradient-amber {
+    background: linear-gradient(135deg, var(--color-amber-400), var(--color-amber-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card surface */
+  .card-surface {
+    background-color: var(--color-navy-800);
+    border: 1px solid var(--color-navy-700);
+    border-radius: 0.75rem;
+  }
+
+  /* Animação de entrada */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out both;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Gradiente de separação de seção */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-navy-700),
+      transparent
+    );
+  }
+}
